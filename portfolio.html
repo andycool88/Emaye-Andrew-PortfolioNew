@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Emaye Olugbenga Andrew | Cloud & DevOps Engineer</title>
+
+  <!-- Google Fonts: serif + sans-serif -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome (icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHq6vXgCkzMk2p3Xh3s4eZs5bE1o6Z4f5sQJ0D5qQ1J6v0w4f7w1Xq6TU3p8q1zqN3Zdx1wQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <meta name="description" content="Portfolio of Emaye Olugbenga Andrew — AWS Cloud & DevOps Engineer. CI/CD, Docker, Kubernetes, AWS deployments." />
+
+  <style>
+    :root{
+      --bg-grad: linear-gradient(120deg,#fff7ec 0%, #fff2d9 35%, #fff0d4 60%, #fff 100%);
+      --accent: #ff6f00;
+      --muted: #6b6b6b;
+      --glass: rgba(255,255,255,0.7);
+      --card-shadow: 0 6px 24px rgba(11,11,11,0.08);
+      --radius-lg: 16px;
+      --radius-md: 10px;
+      --max-width: 1100px;
+      --serif: 'Playfair Display', serif;
+      --sans: 'Inter', system-ui, Arial, sans-serif;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      background:var(--bg-grad);
+      color:#111;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+    }
+
+    /* container */
+    .wrap{max-width:var(--max-width);margin:0 auto;padding:28px;}
+
+    /* NAV */
+    header{
+      position:sticky;top:12px;z-index:60;
+      display:flex;justify-content:center;
+      pointer-events:none;
+    }
+    .nav-inner{
+      width:100%;
+      max-width:var(--max-width);
+      display:flex;align-items:center;justify-content:space-between;
+      gap:16px;padding:10px 18px;background:transparent;pointer-events:auto;
+      backdrop-filter: blur(6px);
+    }
+    .brand{font-family:var(--serif);font-weight:700;letter-spacing:0.4px;font-size:20px}
+    nav{display:flex;gap:18px;align-items:center}
+    nav a{font-size:14px;color:#111;text-decoration:none;opacity:0.9}
+    .cta-btn{
+      background:#111;color:#fff;padding:10px 14px;border-radius:999px;font-weight:600;border:none;cursor:pointer;
+      display:inline-flex;align-items:center;gap:8px;text-decoration:none;
+    }
+
+    /* mobile nav */
+    .menu-toggle{display:none;background:transparent;border:0;font-size:20px;cursor:pointer}
+    @media (max-width:880px){
+      nav{display:none}
+      .menu-toggle{display:inline-block}
+    }
+    .mobile-nav{
+      display:none;position:absolute;right:18px;top:64px;background:rgba(255,255,255,0.95);padding:12px;border-radius:12px;box-shadow:var(--card-shadow);
+    }
+    .mobile-nav a{display:block;padding:8px 10px;color:#111}
+
+    /* HERO */
+    .hero{
+      margin-top:20px;
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:28px;
+      align-items:center;
+    }
+    .hero-left{
+      padding:30px;border-radius:var(--radius-lg);background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.95));
+      box-shadow:var(--card-shadow);
+    }
+    .small-note{display:inline-flex;align-items:center;gap:10px;padding:8px 12px;border-radius:999px;background:#fff;font-weight:600;color:#333;margin-bottom:18px}
+    .intro-h{
+      font-family:var(--serif);font-size:52px;margin:0 0 8px;color:#111;line-height:0.95;
+    }
+    .big-title{font-size:48px;font-weight:800;margin:6px 0 12px;letter-spacing:0.5px}
+    .tagline{color:var(--muted);margin-bottom:20px}
+    .hero-actions{display:flex;gap:12px;align-items:center}
+    .btn-outline{padding:10px 14px;border-radius:999px;border:2px solid rgba(17,17,17,0.08);font-weight:600;background:transparent;cursor:pointer}
+    .btn-primary{background:var(--accent);border:none;color:#fff;padding:10px 16px;border-radius:999px;font-weight:700;cursor:pointer}
+    .hero-stats{display:flex;gap:18px;margin-top:22px}
+    .stat{font-weight:800;font-size:20px}
+    .stat-sub{font-size:13px;color:var(--muted);font-weight:600}
+
+    /* hero-right card */
+    .hero-right{
+      background:linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.6));
+      border-radius:18px;padding:18px;box-shadow:var(--card-shadow);
+      display:flex;flex-direction:column;gap:12px;align-items:center;
+    }
+    .headshot{
+      width:100%;height:320px;border-radius:12px;object-fit:cover;background:linear-gradient(120deg,#ffe9d0,#fff);
+      display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:22px;color:#666;
+    }
+    .role-badge{align-self:flex-start;background:#111;color:#fff;padding:8px 12px;border-radius:8px;font-weight:700;font-size:13px}
+
+    /* SECTIONS */
+    section{margin:48px 0;padding:18px;border-radius:12px}
+    h2.section-title{font-family:var(--serif);font-size:20px;margin:0 0 18px}
+    .grid{display:grid;gap:18px}
+
+    /* About & Skills columns */
+    .about-skills{display:grid;grid-template-columns: 1fr 340px;gap:18px;align-items:start}
+    .about-card{background:#fff;padding:20px;border-radius:12px;box-shadow:var(--card-shadow)}
+    .skills-list{display:flex;flex-direction:column;gap:10px}
+    .skill-item{display:flex;gap:12px;align-items:center}
+    .skill-icon{width:44px;height:44px;border-radius:10px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 6px 14px rgba(11,11,11,0.06)}
+
+    /* Projects */
+    .projects-grid{grid-template-columns:repeat(3,1fr);display:grid}
+    .project-card{
+      border-radius:12px;background:#fff;padding:14px;box-shadow:var(--card-shadow);overflow:hidden;display:flex;flex-direction:column;gap:12px;
+    }
+    .project-thumb{aspect-ratio:16/10;border-radius:10px;background:linear-gradient(120deg,#fff1e0,#fff);display:flex;align-items:center;justify-content:center;color:#aaa;font-weight:700}
+    .project-title{font-weight:700}
+    .project-tags{display:flex;gap:8px;flex-wrap:wrap}
+    .tag{background:#f3f3f3;padding:6px 8px;border-radius:999px;font-size:12px;color:#666}
+
+    /* Experience timeline */
+    .timeline{display:flex;flex-direction:column;gap:12px}
+    .timeline-item{display:flex;gap:12px;align-items:flex-start;background:#fff;padding:12px;border-radius:10px;box-shadow:var(--card-shadow)}
+    .timeline-year{font-weight:800;width:110px;color:var(--accent)}
+    .timeline-body{flex:1}
+
+    /* Stats */
+    .stats{display:flex;gap:18px;flex-wrap:wrap}
+    .stat-card{background:#fff;padding:16px;border-radius:12px;box-shadow:var(--card-shadow);min-width:160px;text-align:center}
+
+    /* Contact */
+    .contact-grid{display:grid;grid-template-columns:1fr 360px;gap:18px;align-items:start}
+    .contact-card{background:#fff;padding:18px;border-radius:12px;box-shadow:var(--card-shadow)}
+    form label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+    input,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #eee;font-family:inherit;resize:vertical}
+    .submit{margin-top:8px;background:var(--accent);color:#fff;padding:10px 14px;border-radius:10px;border:none;font-weight:700;cursor:pointer}
+
+    footer{padding:26px 18px 60px;text-align:center;color:var(--muted);font-size:14px}
+
+    /* Responsive tweaks */
+    @media (max-width:1100px){
+      .hero{grid-template-columns:1fr 360px}
+      .projects-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:880px){
+      .wrap{padding:16px}
+      .hero{grid-template-columns:1fr;gap:16px}
+      .hero-right{order:-1}
+      .about-skills{grid-template-columns:1fr;gap:12px}
+      .projects-grid{grid-template-columns:1fr}
+      .contact-grid{grid-template-columns:1fr}
+      header{top:8px}
+    }
+
+    /* small animations */
+    .fade-up{opacity:0;transform:translateY(14px);transition:all .6s ease}
+    .fade-up.in{opacity:1;transform:none}
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-inner wrap" role="navigation" aria-label="Primary">
+      <div style="display:flex;align-items:center;gap:18px">
+        <div class="brand">Emaye Andrew </div>
+        <div style="color:var(--muted);font-size:13px">Cloud & DevOps Engineer</div>
+      </div>
+
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div style="display:flex;align-items:center;gap:10px">
+        <a class="cta-btn" href="#contact"><i class="fa-solid fa-envelope"></i> Contact Me</a>
+        <button class="menu-toggle" aria-expanded="false" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
+      </div>
+
+      <div class="mobile-nav" id="mobileNav" role="menu" aria-hidden="true">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap" id="home">
+    <!-- HERO -->
+    <section class="hero" aria-label="Hero">
+      <div class="hero-left fade-up">
+        <div class="small-note"><i class="fa-solid fa-circle" style="color:var(--accent);font-size:10px"></i> Available for new opportunities</div>
+        <h1 class="intro-h">Hey, there</h1>
+        <div class="big-title">I am Andrew, a Cloud & DevOps Engineer</div>
+        <div class="tagline">Specialized in AWS Cloud, CI/CD pipelines, Docker,Kubernetes and Terraform for automation</div>
+
+        <div class="hero-actions">
+          <a class="btn-primary" href="#contact">Contact Me</a>
+          <button class="btn-outline" onclick="window.open('https://github.com/andycool88','_blank')">
+            <i class="fa-brands fa-github"></i> View GitHub
+          </button>
+        </div>
+
+        <div class="hero-stats" style="margin-top:18px">
+          <div>
+            <div class="stat">15+</div>
+            <div class="stat-sub">Projects</div>
+          </div>
+          <div>
+            <div class="stat">5+</div>
+            <div class="stat-sub">AWS Deployments</div>
+          </div>
+          <div>
+            <div class="stat">1+</div>
+            <div class="stat-sub">Years DevOps</div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-right fade-up">
+        <div class="role-badge">AWS Cloud Engineer with DevOps focus</div>
+        <div class="headshot" aria-hidden="true">
+          <!-- Replace with real headshot:--> <img src="Andrew.jpeg" alt="Emaye Olugbenga Andrew"  style="width:100%; height:100%; object-fit:cover; border-radius:12px; display:block;"> 
+        </div>
+        <div style="width:100%;display:flex;justify-content:space-between;gap:8px">
+          <div style="flex:1">
+            <div style="font-weight:700">Location</div>
+            <div style="color:var(--muted);font-size:13px">Lagos, Nigeria</div>
+          </div>
+          <div style="flex:1;text-align:right">
+            <div style="font-weight:700">Email</div>
+            <div style="color:var(--muted);font-size:13px">g.emaye@live.com</div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- ABOUT + SKILLS -->
+    <section id="about" aria-labelledby="aboutTitle">
+      <h2 id="aboutTitle" class="section-title">About</h2>
+      <div class="about-skills">
+        <div class="about-card fade-up">
+          <p style="margin-top:0">
+            <strong>Emaye Olugbenga Andrew</strong> is a motivated Cloud & DevOps engineer with hands-on experience in AWS cloud computing, CI/CD pipelines, Docker, and Kubernetes.
+            Skilled in deploying scalable applications, automating infrastructure, and monitoring systems using modern DevOps practices. Completed multiple real-world projects including Kubernetes deployments, CI/CD pipelines, infrastructure automation, and cloud-native hosting.
+          </p>
+
+          <p style="color:var(--muted);margin-top:8px">
+            Quick to learn new technologies and passionate about delivering secure, efficient solutions.
+          </p>
+
+          <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+            <a href="mailto:g.emaye@live.com" class="btn-primary" style="text-decoration:none">Email Me</a>
+            <a href="https://github.com/andycool88" target="_blank" class="btn-outline" style="text-decoration:none">GitHub</a>
+          </div>
+        </div>
+
+        <aside class="about-card fade-up" aria-label="Core Skills">
+          <h3 style="margin:0 0 12px;font-family:var(--serif);font-size:16px">Core Skills</h3>
+          <div class="skills-list">
+            <div class="skill-item"><div class="skill-icon"><i class="fa-brands fa-aws"></i></div><div><strong>Cloud Platforms</strong><div style="font-size:13px;color:var(--muted)">AWS EC2, S3, RDS, Lambda, Route53</div></div></div>
+
+            <div class="skill-item"><div class="skill-icon"><i class="fa-solid fa-wrench"></i></div><div><strong>DevOps & CI/CD</strong><div style="font-size:13px;color:var(--muted)">CodePipeline, Jenkins, Docker, GitHub</div></div></div>
+
+            <div class="skill-item"><div class="skill-icon"><i class="fa-solid fa-box"></i></div><div><strong>Containers & Orchestration</strong><div style="font-size:13px;color:var(--muted)">Docker, Kubernetes (pods, services, ingress) ECS, EKS</div></div></div>
+
+            <div class="skill-item"><div class="skill-icon"><i class="fa-solid fa-code"></i></div><div><strong>Programming</strong><div style="font-size:13px;color:var(--muted)">Python, Node.js, React, Bash</div></div></div>
+
+            <div class="skill-item"><div class="skill-icon"><i class="fa-solid fa-chart-line"></i></div><div><strong>Monitoring and Logging</strong><div style="font-size:13px;color:var(--muted)">CloudWatch, Grafana</div></div></div>
+
+            <div class="skill-item"><div class="skill-icon"><i class="fa-solid fa-list-check"></i></div><div><strong>Collaboration & Ticketing Automation</strong><div style="font-size:13px;color:var(--muted)">Jira, Asana,Slack</div></div></div>
+
+<div class="skill-item"><div class="skill-icon"><i class="fa-solid fa-chart-line"></i></div><div><strong>Infrastructure as Code (IaC)</strong><div style="font-size:13px;color:var(--muted)">Terraform, Aws CloudFormation</div></div></div>
+
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" aria-labelledby="projectsTitle">
+      <h2 id="projectsTitle" class="section-title">Recent Projects</h2>
+      <div class="projects-grid grid fade-up">
+        <!-- Project 1 -->
+        <article class="project-card">
+          <div class="project-thumb">Kubernetes Deployment</div>
+          <div class="project-title">Kubernetes Nginx Deployment</div>
+          <div class="project-desc" style="color:var(--muted);font-size:13px">Deployed Nginx with Pods, Services and Ingress to ensure scalability and public access.</div>
+          <div class="project-tags">
+            <span class="tag">Kubernetes</span>
+            <span class="tag">Helm</span>
+            <span class="tag">Ingress</span>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card">
+          <div class="project-thumb">Sentiment Analyzer</div>
+          <div class="project-title">Sentiment Analyzer App</div>
+          <div class="project-desc" style="color:var(--muted);font-size:13px">Python + FastAPI app using AWS Comprehend, containerized with Docker and deployed on AWS.</div>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">AWS Comprehend</span>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project-card">
+          <div class="project-thumb">CI/CD Pipeline</div>
+          <div class="project-title">End-to-End CI/CD</div>
+          <div class="project-desc" style="color:var(--muted);font-size:13px">Automated pipeline using AWS CodePipeline, CodeBuild, ECR, with automated deployments to EC2/ECS.</div>
+          <div class="project-tags">
+            <span class="tag">AWS</span>
+            <span class="tag">CodePipeline</span>
+            <span class="tag">ECR</span>
+          </div>
+        </article>
+
+        <!-- Project 4 -->
+        <article class="project-card">
+          <div class="project-thumb">Grafana & Metabase</div>
+          <div class="project-title">Grafana & Metabase on ECS</div>
+          <div class="project-desc" style="color:var(--muted);font-size:13px">Deployed Grafana & Metabase on ECS Fargate and connected to RDS PostgreSQL for dashboards.</div>
+          <div class="project-tags">
+            <span class="tag">ECS Fargate</span>
+            <span class="tag">Postgres</span>
+          </div>
+        </article>
+
+        <!-- Project 5 -->
+        <article class="project-card">
+          <div class="project-thumb">Static Site Hosting</div>
+          <div class="project-title">Static Site — S3 + CloudFront</div>
+          <div class="project-desc" style="color:var(--muted);font-size:13px">Hosted a static portfolio on S3, served via CloudFront with Route53 and ACM for HTTPS.</div>
+          <div class="project-tags">
+            <span class="tag">S3</span>
+            <span class="tag">CloudFront</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" aria-labelledby="expTitle">
+      <h2 id="expTitle" class="section-title">Experience & Skills</h2>
+      <div class="timeline fade-up">
+        <div class="timeline-item">
+          <div class="timeline-year">2023–2024</div>
+          <div class="timeline-body">
+            <div style="font-weight:800">Front-End Developer — Smart Approaches (Remote)</div>
+            <div style="color:var(--muted);font-size:13px">Built React front-ends, integrated REST APIs, worked with GitHub and CI/CD practices.</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">2016–2022</div>
+          <div class="timeline-body">
+            <div style="font-weight:800">Guest Experience Supervisor — Marriott International, Lagos</div>
+            <div style="color:var(--muted);font-size:13px">Led guest services, managed reservations using Salesforce; developed leadership and process skills.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education & Certifications -->
+    <section aria-labelledby="eduTitle">
+      <h2 id="eduTitle" class="section-title">Education & Certifications</h2>
+      <div class="grid" style="grid-template-columns:repeat(3,1fr);gap:12px">
+        <div class="about-card fade-up">
+          <strong>CloudSec Network Bootcamp</strong>
+          <div style="color:var(--muted);font-size:13px">AWS Cloud Computing — 2025</div>
+        </div>
+        <div class="about-card fade-up">
+          <strong>IBT Learning Africa</strong>
+          <div style="color:var(--muted);font-size:13px">DevOps Industrial Training — 2025</div>
+        </div>
+        <div class="about-card fade-up">
+          <strong>GIIT</strong>
+          <div style="color:var(--muted);font-size:13px">Certified Mobile App Developer</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS & CONTACT -->
+    <section id="contact" aria-labelledby="contactTitle">
+      <h2 id="contactTitle" class="section-title">Contact</h2>
+      <div class="contact-grid">
+        <div class="contact-card fade-up">
+          <h3 style="margin:0 0 8px">Let's work together</h3>
+          <p style="color:var(--muted);margin-top:0">Email me for collaboration, hiring or project inquiries.</p>
+
+          <div class="stats" style="margin-top:12px">
+            <div class="stat-card">
+              <div style="font-size:20px;font-weight:800">15+</div>
+              <div style="color:var(--muted);font-size:13px">Projects</div>
+            </div>
+            <div class="stat-card">
+              <div style="font-size:20px;font-weight:800">5+</div>
+              <div style="color:var(--muted);font-size:13px">AWS Deployments</div>
+            </div>
+            <div class="stat-card">
+              <div style="font-size:20px;font-weight:800">1+</div>
+              <div style="color:var(--muted);font-size:13px">Years DevOps</div>
+            </div>
+          </div>
+
+          <div style="margin-top:14px">
+            <div style="font-weight:700">Phone</div>
+            <div style="color:var(--muted);margin-bottom:6px">+234-9064075199</div>
+            <div style="font-weight:700">Email</div>
+            <div style="color:var(--muted);margin-bottom:6px">g.emaye@live.com</div>
+            <div style="display:flex;gap:10px;margin-top:8px">
+              <a href="https://github.com/andycool88" target="_blank" class="btn-outline" style="text-decoration:none"><i class="fa-brands fa-github"></i></a>
+              <a href="https://linkedin.com/in/andrew-emaye-381a53141" target="_blank" class="btn-outline" style="text-decoration:none"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-card fade-up">
+          <form id="contactForm">
+            <label for="name">Your name</label>
+            <input id="name" name="name" placeholder="Your full name" required>
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" placeholder="Tell me about your project or opportunity" required></textarea>
+
+            <button type="submit" class="submit">Send message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <strong>Emaye Olugbenga Andrew</strong> | Cloud & DevOps Engineer • Lagos, Nigeria
+    </footer>
+  </main>
+
+  <script>
+    // mobile nav toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    menuToggle && menuToggle.addEventListener('click', () => {
+      const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', String(!expanded));
+      mobileNav.style.display = expanded ? 'none' : 'block';
+      mobileNav.setAttribute('aria-hidden', String(expanded));
+    });
+
+    // smooth scroll for all internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const href = a.getAttribute('href');
+        if(href.length>1){
+          e.preventDefault();
+          const el = document.querySelector(href);
+          if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+          // close mobile nav after click
+          if(window.innerWidth < 880) {
+            mobileNav.style.display = 'none';
+            menuToggle && menuToggle.setAttribute('aria-expanded','false');
+          }
+        }
+      });
+    });
+
+    // simple form handler: opens mailto with form content (fallback)
+    const form = document.getElementById('contactForm');
+    form && form.addEventListener('submit', e=>{
+      e.preventDefault();
+      const n = document.getElementById('name').value.trim();
+      const mail = document.getElementById('email').value.trim();
+      const msg = document.getElementById('message').value.trim();
+
+      const subject = encodeURIComponent('Portfolio contact from ' + n);
+      const body = encodeURIComponent(`Name: ${n}\nEmail: ${mail}\n\n${msg}`);
+      // Use mailto (works in most clients); for production replace with server/API.
+      window.location.href = `mailto:g.emaye@live.com?subject=${subject}&body=${body}`;
+    });
+
+    // reveal fade-up elements on scroll
+    const faders = document.querySelectorAll('.fade-up');
+    const onScroll = () => {
+      const top = window.innerHeight;
+      faders.forEach(el=>{
+        const rect = el.getBoundingClientRect();
+        if(rect.top < top - 60) el.classList.add('in');
+      });
+    }
+    window.addEventListener('scroll', onScroll, {passive:true});
+    window.addEventListener('resize', onScroll);
+    onScroll();
+
+  </script>
+</body>
+</html>
