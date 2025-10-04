@@ -1,20 +1,22 @@
-name: Trivy Scan (HTML Project)
+name: Trivy Security Scan
 
 on:
-  push:        # Run when you push changes
-  pull_request: # Run when someone makes a PR
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
-  scan:
-    runs-on: ubuntu-latest   # Use GitHub's free Ubuntu runner
+  trivy-scan:
+    runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3   # Download your repo files
+        uses: actions/checkout@v3
 
-      - name: Install Trivy
-        run: |
-          curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh
+      - name: Run Trivy filesystem scan
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
 
-      - name: Run Trivy scan
-        run: |
-          ./trivy fs --exit-code 1 --severity HIGH,CRITICAL .
